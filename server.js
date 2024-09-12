@@ -21,8 +21,8 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.post('/create', async (req, res) => {
-    const { email, imageData } = req.body
-    const imageId = createSHA256Hash(email)
+    const { id, imageData } = req.body
+    const imageId = createSHA256Hash(id)
     const imageBuffer = getImageBuffer(imageData)
     const resp = await imagekit.upload({
         file: imageBuffer,
